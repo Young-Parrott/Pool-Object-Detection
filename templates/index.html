@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pool Object Identifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="submit"] {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        img {
+            margin-top: 20px;
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            padding: 5px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pool Object Identifier</h1>
+    <p>Upload an image and click submit</p>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" autocomplete="off" accept="image/*" required>
+        <br>
+        <input type="submit" name="submit" value="Submit">
+    </form>
+
+    {% if prediction %}
+        <h2>The object in the image is: {{ prediction }}</h2>
+        <img src="{{ url_for('static', filename='images/' + filename) }}" alt="Uploaded Image with Bounding Boxes">
+    {% endif %}
+
+    <p style="color:black;">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                The object in the image is: <u><h3 style="color:black;">{{ messages[0] }}</h3></u>
+                <img src="{{ messages[1] }}" width="300", height="225">
+            {% endif %}
+        {% endwith %}
+    </p>
+
+</body>
+
+
+
+</html>
