@@ -27,7 +27,7 @@ mkl-service==2.4.1
 mpmath==1.3.0
 networkx==3.3
 numpy==1.24.3
-opencv-python==4.7.0
+opencv-python==4.7.0.72
 packaging==24.1
 pillow==10.4.0
 pip==24.0
